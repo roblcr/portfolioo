@@ -15,30 +15,31 @@
 							{% endif %}
 						</h1>
 						<h3>
-							<span>Web Developer / Photographer</span>
+							<span>{{personalInfo[0].job}}</span>
 						</h3>
 						<p>
 							<ul class="fh5co-social-icons">
-								<li>
-									<a href="#">
-										<i class="icon-twitter2"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="icon-github2"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="icon-linkedin2"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="icon-monitor"></i>
-									</a>
-								</li>
+								{% if personalInfo[0].githubLink %}
+									<li>
+										<a href="{{personalInfo[0].githubLink}}">
+											<i class="icon-github2"></i>
+										</a>
+									</li>
+								{% endif %}
+								{% if personalInfo[0].linkedinLink %}
+									<li>
+										<a href="{{personalInfo[0].linkedinLink}}">
+											<i class="icon-linkedin2"></i>
+										</a>
+									</li>
+								{% endif %}
+								{% if personalInfo[0].maltLink %}
+									<li>
+										<a href="{{personalInfo[0].maltLink}}">
+											<i class="icon-monitor"></i>
+										</a>
+									</li>
+								{% endif %}
 							</ul>
 						</p>
 					</div>
