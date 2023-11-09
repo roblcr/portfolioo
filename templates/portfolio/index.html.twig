@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PortfolioController!
+{% endblock %}
+
+{% block stylesheets %}
+	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+	<link
+	href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+	<!-- Animate.css -->
+	<link
+	rel="stylesheet" href="{{ asset('css/animate.css') }}">
+	<!-- Icomoon Icon Fonts-->
+	<link
+	rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
+	<!-- Bootstrap  -->
+	<link
+	rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+	<!-- Theme style  -->
+	<link
+	rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+	<!-- Modernizr JS -->
+	<script src="{{ asset('js/modernizr-2.6.2.min.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+	<div class="fh5co-loader"></div>
+
+	<div id="page">
+		{{include('portfolio/_header.html.twig')}}
+		{{include('portfolio/_about.html.twig')}}
+		{{include('portfolio/_resume.html.twig')}}
+		{{include('portfolio/_features.html.twig')}}
+		{{include('portfolio/_skills.html.twig')}}
+		{{include('portfolio/_works.html.twig')}}
+		{{include('portfolio/_blog.html.twig')}}
+		{{include('portfolio/_hire.html.twig')}}
+		{{include('portfolio/_contact.html.twig')}}
+		{{include('portfolio/_map.html.twig')}}
+
+
+	</div>
+
+	{{include('portfolio/_footer.html.twig')}}
+{% endblock %}
+
+{% block javascripts %}
+
+	<!-- jQuery -->
+	<script src="{{ asset('js/jquery.min.js') }}"></script>
+	<!-- jQuery Easing -->
+	<script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
+	<!-- Bootstrap -->
+	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+	<!-- Waypoints -->
+	<script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
+	<!-- Stellar Parallax -->
+	<script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
+	<!-- Easy PieChart -->
+	<script src="{{ asset('js/jquery.easypiechart.min.js') }}"></script>
+	<!-- Google Map -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&sensor=false"></script>
+	<script src="{{ asset('js/google_map.js') }}"></script>
+
+	<!-- Main -->
+	<script src="{{ asset('js/main.js') }}"></script>
+
+{% endblock %}
