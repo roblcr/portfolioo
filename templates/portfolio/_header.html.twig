@@ -7,7 +7,12 @@
 					<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
 						<div class="profile-thumb" style="background: url(images/user.jpg);"></div>
 						<h1>
-							<span>Robin Lecullier</span>
+							{% if personalInfo|length > 0 %}
+								<span>{{ personalInfo[0].firstName }}
+									{{ personalInfo[0].lastName }}</span>
+							{% else %}
+								<p>John Doe</p>
+							{% endif %}
 						</h1>
 						<h3>
 							<span>Web Developer / Photographer</span>
@@ -21,7 +26,7 @@
 								</li>
 								<li>
 									<a href="#">
-										<i class="icon-facebook2"></i>
+										<i class="icon-github2"></i>
 									</a>
 								</li>
 								<li>
@@ -31,7 +36,7 @@
 								</li>
 								<li>
 									<a href="#">
-										<i class="icon-dribbble2"></i>
+										<i class="icon-monitor"></i>
 									</a>
 								</li>
 							</ul>
