@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Formation;
 use App\Entity\PersonalInfo;
 use App\Entity\WorkExperience;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -47,5 +48,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoRoute('Back to the website', 'fas fa-home', 'app_portfolio');
         yield MenuItem::linkToCrud('Personal Info', 'fas fa-list', PersonalInfo::class);
         yield MenuItem::linkToCrud('Work Experience', 'fas fa-list', WorkExperience::class);
+        yield MenuItem::linkToCrud('Formation', 'fas fa-list', Formation::class);
     }
 }

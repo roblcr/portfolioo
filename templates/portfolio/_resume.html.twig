@@ -13,8 +13,10 @@
 							<h3>Work Experience</h3>
 						</div>
 					</li>
+					{% set totalExperiences = workExperience|length %}
+					{% set isFirstFormationEven = totalExperiences is even %}
+
 					{% for experience in workExperience %}
-						{# Utilisez la variable loop.index pour obtenir le numéro du tour actuel #}
 						{% set isEven = loop.index is even %}
 
 						<li class="animate-box {% if isEven %}timeline-unverted{% else %}timeline-inverted animate-box{% endif %}">
@@ -26,7 +28,7 @@
 									<h3 class="timeline-title">{{ experience.title }}</h3>
 									<span class="company">{{ experience.companyName }}
 										-
-										{{experience.location}}
+										{{ experience.location }}
 										-
 										{{ experience.yearStart }}
 										-
@@ -39,97 +41,46 @@
 						</li>
 					{% endfor %}
 
-					{# <li class="timeline-inverted animate-box">
-																						<div class="timeline-badge">
-																							<i class="icon-suitcase"></i>
-																						</div>
-																						<div class="timeline-panel">
-																							<div class="timeline-heading">
-																								<h3 class="timeline-title">Junior Developer</h3>
-																								<span class="company">Company Name - 2013 - 2015</span>
-																							</div>
-																							<div class="timeline-body">
-																								<p>Far far away, behind the word mountains, they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-																							</div>
-																						</div>
-																					</li>
-																					<li class="animate-box timeline-unverted">
-																						<div class="timeline-badge">
-																							<i class="icon-suitcase"></i>
-																						</div>
-																						<div class="timeline-panel">
-																							<div class="timeline-heading">
-																								<h3 class="timeline-title">UI/UX Designer</h3>
-																								<span class="company">Company Name - 2010 - 2012</span>
-																							</div>
-																							<div class="timeline-body">
-																								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-																							</div>
-																						</div>
-																					</li> #}
-
 					<br>
+
 					<li class="timeline-heading text-center animate-box">
 						<div>
 							<h3>Education</h3>
 						</div>
 					</li>
-					<li class="timeline-inverted animate-box">
-						<div class="timeline-badge">
-							<i class="icon-graduation-cap"></i>
-						</div>
-						<div class="timeline-panel">
-							<div class="timeline-heading">
-								<h3 class="timeline-title">Masters Degree</h3>
-								<span class="company">University Name - 2007 - 2009</span>
+
+					{% set isFirstFormationLeft = (isFirstFormationEven and totalExperiences is odd) or (not isFirstFormationEven and totalExperiences is even) %}
+
+					{% for item in formation %}
+						{% set formationIndex = loop.index0 %}
+
+						*
+						{% set isLeftFormation = isFirstFormationLeft ? (formationIndex is odd) : (formationIndex is even) %}
+
+						<li class="animate-box {% if isLeftFormation %}timeline-unverted{% else %}timeline-inverted animate-box{% endif %}">
+							<div class="timeline-badge">
+								<i class="icon-graduation-cap"></i>
 							</div>
-							<div class="timeline-body">
-								<p>Far far away, behind the word mountains, they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h3 class="timeline-title">{{ item.title }}</h3>
+									<span class="company">{{ item.schoolName }}
+										-
+										{{ item.location }}
+										-
+										{{ item.yearStart }}
+										-
+										{{ item.yearEnd }}</span>
+								</div>
+								{% if item.resume %}
+									<div class="timeline-body">
+										<p>{{ item.resume }}</p>
+									</div>
+								{% endif %}
 							</div>
-						</div>
-					</li>
-					<li class="animate-box timeline-unverted">
-						<div class="timeline-badge">
-							<i class="icon-graduation-cap"></i>
-						</div>
-						<div class="timeline-panel">
-							<div class="timeline-heading">
-								<h3 class="timeline-title">Bachelors Degree</h3>
-								<span class="company">University Name - 2002 - 2006</span>
-							</div>
-							<div class="timeline-body">
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							</div>
-						</div>
-					</li>
-					<li class="timeline-inverted animate-box">
-						<div class="timeline-badge">
-							<i class="icon-graduation-cap"></i>
-						</div>
-						<div class="timeline-panel">
-							<div class="timeline-heading">
-								<h3 class="timeline-title">Diploma Course</h3>
-								<span class="company">College Name - 1999 - 2001</span>
-							</div>
-							<div class="timeline-body">
-								<p>Far far away, behind the word mountains, they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-							</div>
-						</div>
-					</li>
-					<li class="animate-box timeline-unverted">
-						<div class="timeline-badge">
-							<i class="icon-graduation-cap"></i>
-						</div>
-						<div class="timeline-panel">
-							<div class="timeline-heading">
-								<h3 class="timeline-title">Graduation</h3>
-								<span class="company">College Name - 1994 - 1998</span>
-							</div>
-							<div class="timeline-body">
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							</div>
-						</div>
-					</li>
+						</li>
+					{% endfor %}
+
 				</ul>
 			</div>
 		</div>
