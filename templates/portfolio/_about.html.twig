@@ -2,63 +2,70 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-				<h2>About Me</h2>
+				<h2>A propos de moi</h2>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-4">
 				<ul class="info">
 					<li>
-						<span class="first-block">Full Name:</span>
-						<span class="second-block">Louie Jie Mahusay</span>
+						<span class="first-block">Nom:</span>
+						<span class="second-block">{{personalInfo[0].firstName}}
+							{{personalInfo[0].lastName}}</span>
 					</li>
 					<li>
-						<span class="first-block">Phone:</span>
-						<span class="second-block">+ 1235 2355 98</span>
-					</li>
+						{% if personalInfo[0].phone %}
+							<span class="first-block">Telephone:</span>
+							<span class="second-block">{{personalInfo[0].phone}}</span>
+						</li>
+					{% endif %}
 					<li>
-						<span class="first-block">Email:</span>
-						<span class="second-block">info@yoursite.com</span>
-					</li>
-					<li>
-						<span class="first-block">Website:</span>
-						<span class="second-block">www.yoursite.com</span>
-					</li>
-					<li>
-						<span class="first-block">Address:</span>
-						<span class="second-block">198 West 21th Street, Suite 721 New York NY 10016</span>
-					</li>
+						{% if personalInfo[0].mail %}
+							<span class="first-block">Email:</span>
+							<span class="second-block">{{personalInfo[0].mail}}</span>
+						</li>
+					{% endif %}
+					{% if personalInfo[0].website %}
+						<li>
+							<span class="first-block">Site Web:</span>
+							<span class="second-block">{{personalInfo[0].website}}</span>
+						</li>
+					{% endif %}
+					{% if personalInfo[0].address %}
+						<li>
+							<span class="first-block">Adresse:</span>
+							<span class="second-block">{{personalInfo[0].address}}</span>
+						</li>
+					{% endif %}
 				</ul>
 			</div>
 			<div class="col-md-8">
 				<h2>Hello There!</h2>
-				<p>There live the blind texts far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in bookmarksgrove there live the blind texts far from the countries.</p>
-				<p>Far far away, behind the word mountains, Quos quia provident consequuntur culpa facere ratione maxime commodi voluptates id repellat velit eaque aspernatur expedita. Possimus itaque adipisci there live the blind texts from the countries Vokalia and Consonantia, there live the blind texts. Quos quia provident consequuntur culpa facere ratione maxime commodi voluptates id repellat velit eaque aspernatur expedita. Possimus itaque adipisci.</p>
-				<p>
-					<ul class="fh5co-social-icons">
+				<p>{{personalInfo[0].resume}}</p>
+				<ul class="fh5co-social-icons">
+					{% if personalInfo[0].githubLink %}
 						<li>
-							<a href="#">
-								<i class="icon-twitter2"></i>
+							<a href="{{personalInfo[0].githubLink}}">
+								<i class="icon-github2"></i>
 							</a>
 						</li>
+					{% endif %}
+					{% if personalInfo[0].linkedinLink %}
 						<li>
-							<a href="#">
-								<i class="icon-facebook3"></i>
-							</a>
-						</li>
-						<li>
-							<a href="#">
+							<a href="{{personalInfo[0].linkedinLink}}">
 								<i class="icon-linkedin2"></i>
 							</a>
 						</li>
+					{% endif %}
+					{% if personalInfo[0].maltLink %}
 						<li>
-							<a href="#">
-								<i class="icon-dribbble2"></i>
+							<a href="{{personalInfo[0].maltLink}}">
+								<i class="icon-monitor"></i>
 							</a>
 						</li>
-					</ul>
-				</p>
-			</div>
+					{% endif %}
+				</ul>
+			</p>
 		</div>
 	</div>
-</div>
+</div></div>
